@@ -5,7 +5,12 @@ class Api::V1::QuestionsController < ApplicationController
   def index
     @questions = Question.all
 
-    render json: @questions
+    render json: @questions, status: :ok
+  end
+
+  def search
+    @questions = Question.where('searchTerm LIKE ?', "%#{params[:q]}%").order('created_at DESC')
+    render json: @questions, status: :ok
   end
 
   # GET /questions/1

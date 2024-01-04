@@ -12,7 +12,7 @@ Question.destroy_all
 
 10.times do
     Question.create(
-      title: Faker::Lorem.sentence,
-      email: Faker::Lorem.email,
+      searchTerm: Faker::Lorem.sentence,
+      email: Faker::Internet.email,
     )
   end
