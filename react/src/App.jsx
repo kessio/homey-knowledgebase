@@ -1,15 +1,16 @@
 import react from 'react'
 import './index.css'
-import Search from './components/Search'
+import Home from './components/Home'
+import Topics from './components/Topics'
 
 function App() {
 
   return (
     <>
-      <div>
-       <Search/>
-      </div>
+    <Home />
+    <Topics />
     </>
+
   )
 }
 
