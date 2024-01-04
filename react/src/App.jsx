@@ -2,6 +2,7 @@ import react from 'react'
 import './index.css'
 import Home from './components/Home'
 import Topics from './components/Topics'
+import Analytics from './components/Analytics'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <>
     <Home />
     <Topics />
+    <Analytics />
     </>
 
   )

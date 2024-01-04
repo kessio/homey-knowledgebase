@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from './Search'
+import SearchBar from './SearchBar'
 
 function Home() {
   return (
@@ -16,7 +16,7 @@ function Home() {
   
           <strong className="font-extrabold text-rose-700"> Knowledge Base </strong>
         </h1>
-        <Search />
+        <SearchBar />
        
       </div>
     </div>
