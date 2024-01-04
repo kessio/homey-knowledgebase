@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: Crypto@50
+
+development:
+  <<: *default
+  database: Likai_KnowledgeBase_development
+
+test:
+  <<: *default
+  database: Likai_KnowledgeBase_test
+
+production:
+  <<: *default
+  database: Likai_KnowledgeBase_production
+  username: Likai_KnowledgeBase
+  password: <%= ENV["Likai_KnowledgeBase_DATABASE_PASSWORD"] %>
