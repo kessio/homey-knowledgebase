@@ -1,7 +1,6 @@
 import React from 'react'
 import { BiBuildingHouse, BiHomeHeart, BiUser } from 'react-icons/bi';
 
-
 function Topics() {
   return (
     <section className="bg-rose-600 py-24">

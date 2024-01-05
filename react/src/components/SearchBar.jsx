@@ -1,38 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useEffect, useRef } from 'react';
+import axios from 'axios';
 
 const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [value, setValue] = useState('');
+  const [questions, setQuestions] = useState([]);
+  const timeoutRef = useRef(null);
+  const apiUrl = ' http://127.0.0.1:5000'
 
-  const fetchQuestionList = async () => {
+  const fetchQuestions = async(query = '') => {
     try {
-      setIsLoading(true);
-
-      // Replace with your API endpoint
-      const apiUrl = 'http://127.0.0.1:5000/api/v1/questions'
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      console.log(data);
-
-      setSearchResults(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setIsLoading(false);
+      const res = await axios.get(`${apiUrl}/api/v1/questions/search?query=${query}`);
+      console.log(res.data)
+      setQuestions(res.data);
+    } catch (err) {
+      console.log(err);
     }
-  };
+  }
+
+  const handleSearchChange = (e) => {
+    const { value } = e.target;
+    setValue(value);
+
+    if (timeoutRef.current !== null) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      fetchQuestions(value);
+    }, 2000);
+  }
 
   useEffect(() => {
-    // Trigger the fetchQuestionList function immediately on page load
-    fetchQuestionList();
-  }, []); 
+    return () => clearTimeout(timeoutRef.current);
+  },[]);
 
-  const handleSearch = () => {
-    fetchQuestionList();
-  };
 
-  console.log(searchQuery.length)
+
 
   return (
     <div>
@@ -41,33 +44,29 @@ const SearchBar = () => {
           type="text"
           className="w-full px-4 py-4 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-700 bg-white"
           placeholder="How can I help you?"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={value}
+          onChange={handleSearchChange}
         />
-        <button
-          className="mt-2 px-4 py-2 rounded-lg bg-rose-500 text-white"
-          onClick={handleSearch}
-        >
-          Search
-        </button>
       </div>
 
       <div className="mt-4">
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : searchResults.length > 0 ? (
-          <table className="w-full border-collapse border border-gray-300">
-            <tbody>
-              {searchResults.map((result, index) => (
-                <tr key={index} className="border-b border-gray-300">
-                  <td className="p-4">{result}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
+      <table className="w-full border-collapse border border-gray-300">
+    <tbody>
+      {questions.map((question) => (
+        <tr key={question.id} className="border-b border-gray-300">
+          <td className="p-4 text-white">
+            {question.search_term}
+          </td>
+        </tr>
+      ))}
+      {questions.length === 0 && (
+        <tr>
+          <td className="p-4">No results found</td>
+        </tr>
+      )}
+    </tbody>
+  </table>
           <p>No results found</p>
-        )}
       </div>
     </div>
   );
