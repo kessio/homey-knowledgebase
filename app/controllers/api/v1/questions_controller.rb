@@ -46,10 +46,8 @@ class Api::V1::QuestionsController < ApplicationController
       @question = Question.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
-    private
-
     def question_params
       params.require(:question).permit(:email, :search_term) 
     end
 end
+  
