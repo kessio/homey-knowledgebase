@@ -17,8 +17,10 @@ function NoResultsFound() {
     try{
       e.preventDefault();
       const response = await axios.post(`${apiurl}/api/v1/questions`, {
-       search_term: question,
-       email: email,
+        question: {
+          email: email,
+          search_term: question,
+        },
       });
       console.log('Submission successful:', response.data);
       setQuestion('');

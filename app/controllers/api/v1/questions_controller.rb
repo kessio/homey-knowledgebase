@@ -8,15 +8,6 @@ class Api::V1::QuestionsController < ApplicationController
     render json: @questions, status: :ok
   end
 
-  def search
-    @questions = if params[:query].present?
-      Question.where("search_term LIKE ?", "%#{params[:query]}%").order(created_at: :desc)
-    else
-      Question.none
-    end
-render json: @questions
-  end
-
   # GET /questions/1
   def show
     render json: @question
@@ -24,10 +15,12 @@ render json: @questions
 
   # POST /questions
   def create
+    search_term = params[:question][:search_term].downcase.strip
+
     @question = Question.new(question_params)
 
     if @question.save
-      render json: @question, status: :created, location: @question
+      render json: @question, status: :created
     else
       render json: @question.errors, status: :unprocessable_entity
     end
@@ -54,7 +47,9 @@ render json: @questions
     end
 
     # Only allow a list of trusted parameters through.
+    private
+
     def question_params
-      params.require(:question).permit(:email, :searchTerm)
+      params.require(:question).permit(:email, :search_term) 
     end
 end

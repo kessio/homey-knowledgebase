@@ -1,4 +1,4 @@
 class Question < ApplicationRecord
     validates :email, presence: true
-    validates :searchTerm, presence: true
+    validates :search_term, presence: true
 end
