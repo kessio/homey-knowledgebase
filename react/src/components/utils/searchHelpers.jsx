@@ -1,10 +1,10 @@
-export const renderResult = (title, content, keyword) => {
+export const renderResult = (id, title, content, keyword, handleClickSearch) => {
     const highlightedTitle = title.replace(new RegExp(`\\b${keyword}\\b`, 'gi'), match => `<span class="bg-yellow-200">${match}</span>`);
     const truncatedContent = highlightKeywordInContent(content, keyword);
   
     return (
       <div className="text-left">
-        <p dangerouslySetInnerHTML={{ __html: highlightedTitle }} className="font-bold mb-2" />
+        <p dangerouslySetInnerHTML={{ __html: highlightedTitle }} className="font-bold mb-2 cursor-pointer hover:underline" onClick={() => handleClickSearch(id)} />
         <p dangerouslySetInnerHTML={{ __html: truncatedContent }} />
       </div>
     );

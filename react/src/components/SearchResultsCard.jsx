@@ -1,7 +1,17 @@
 import React from 'react'
+import axios from 'axios'
 import { renderResult } from './utils/searchHelpers'
 
 function SearchResultsCard({questions,value}) {
+  const apiurl = 'http://127.0.0.1:5000'
+  
+  const handleClickSearch = async (id) => {
+    const response = await axios.post(`${apiurl}/api/v1/search_articles/count_search`, {
+          id: id
+    });
+    window.location.reload();
+  };
+
   return (
     <div className="bg-white rounded-lg">
             <p className="font-semibold">"Results for {value}"</p>
@@ -10,7 +20,7 @@ function SearchResultsCard({questions,value}) {
                 {questions.map((question) => (
                   <tr key={question.id} className="border-b border-gray-300">
                     <td className="p-4 text-gray-700">
-                    {renderResult(question.title, question.content, value)}
+                    {renderResult(question.id, question.title, question.content, value, handleClickSearch)}
                     </td>
                   </tr>
                 ))}

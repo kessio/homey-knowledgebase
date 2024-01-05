@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :search_articles, only: [] do
         collection do
           get :search
+          post :count_search
         end
       end
     end

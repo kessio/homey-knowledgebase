@@ -8,5 +8,16 @@ class Api::V1::SearchArticlesController < ApplicationController
       
         render json: @search_articles
       end
+
+      def count_search
+        @search_article = SearchArticle.find(params[:id])
+        @search_article.increment!(:count)
+        render json: { message: 'Count incremented successfully' }, status: :ok
+        rescue ActiveRecord::RecordNotFound
+          render json: { error: 'SearchArticle not found' }, status: :not_found
+        rescue StandardError => e
+          render json: { error: e.message }, status: :unprocessable_entity
+
+      end
     
 end
