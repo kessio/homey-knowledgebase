@@ -59,7 +59,7 @@ function NoResultsFound() {
 
   return (
       <div className="bg-white rounded-lg py-4">
-      <p className="font-semibold">No results Found</p>
+      <p className="font-semibold">No Results Found</p>
       <p className="px-3">Please fill out the form. We we will reply soon</p>
       <p className="text-green-500">{submissionSuccess}</p> 
       <form onSubmit={handleSubmit} className="mt-4 mx-10">
