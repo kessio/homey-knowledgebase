@@ -37,13 +37,13 @@ export default function Analytics() {
             <ul className="w-1/2">
                 <h2 className="font-bold">Popular Searches</h2>
                 {allRecent.map((recent) => (
-                  <li key={recent.id} className="text-rose-500 list-disc py-2"><span className="text-gray-500 font-semibold">{recent.title}</span></li>
+                  <li className="text-rose-500 list-disc py-2"><span className="text-gray-500 font-semibold">{recent.title}</span></li>
                 ))}
             </ul>
             <ul className="w-1/2">
             <h2 className="font-bold">Recent Searches</h2>
             {allPopular.map((popular) => (
-                  <li key={popular.id} className=" text-rose-500 list-disc py-2"><span className="text-gray-500 font-semibold">{popular.title}</span></li>
+                  <li className=" text-rose-500 list-disc py-2"><span className="text-gray-500 font-semibold">{popular.title}</span></li>
                 )
             )}
                 
