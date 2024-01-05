@@ -1,5 +1,7 @@
 import React, { useState,useEffect, useRef } from 'react';
 import axios from 'axios';
+import SearchResultsCard from './SearchResultsCard';
+import NoResultsFound from './NoResultsFound';
 
 const SearchBar = () => {
   const [value, setValue] = useState('');
@@ -10,7 +12,7 @@ const SearchBar = () => {
 
   const fetchQuestions = async(query = '') => {
     try {
-      const res = await axios.get(`${apiUrl}/api/v1/questions/search?query=${query}`);
+      const res = await axios.get(`${apiUrl}/api/v1/search_articles/search?query=${query}`);
       console.log(res.data)
       setQuestions(res.data);
     } catch (err) {
@@ -38,8 +40,6 @@ const SearchBar = () => {
     return () => clearTimeout(timeoutRef.current);
   },[]);
 
-  console.log(questions.length)
-
   return (
     <div>
       <div className="rounded-lg p-4 mt-4">
@@ -57,39 +57,14 @@ const SearchBar = () => {
     ) : (
       <div>
         {questions.length > 0 ? (
-          <div className="bg-white rounded-lg">
-            <p className="font-semibold">Results for {value}</p>
-            <table className="w-full border-collapse">
-              <tbody>
-                {questions.map((question) => (
-                  <tr key={question.id} className="border-b border-gray-300">
-                    <td className="p-4 text-gray-700">
-                      {question.search_term}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <SearchResultsCard questions={questions} value={value} />
         ) : (
           value.length > 0 && (
-            <div className="bg-white rounded-lg py-10">
-              <p className="font-semibold py-4">No results Found</p>
-              <button className="bg-rose-500 text-white px-4 py-2 rounded-lg">
-                Ask Question
-              </button>
-            </div>
+            <NoResultsFound />
           )
         )}
       </div>
-    )}
-
-
-
-
-
-
-      
+    )} 
     </div>
   )};
 
