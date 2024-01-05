@@ -6,6 +6,8 @@ Rails.application.routes.draw do
         collection do
           get :search
           post :count_search
+          get :recent
+          get :popular
         end
       end
     end

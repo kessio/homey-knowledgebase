@@ -17,7 +17,16 @@ class Api::V1::SearchArticlesController < ApplicationController
           render json: { error: 'SearchArticle not found' }, status: :not_found
         rescue StandardError => e
           render json: { error: e.message }, status: :unprocessable_entity
+      end
 
+      def recent
+        @recent_searches = SearchArticle.order(updated_at: :desc).limit(5)
+        render json: @recent_searches
+      end
+    
+      def popular
+        @popular_searches = SearchArticle.order(count: :desc).limit(5)
+        render json: @popular_searches
       end
     
 end
