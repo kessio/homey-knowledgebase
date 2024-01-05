@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const timeoutRef = useRef(null);
-  const apiUrl = ' http://127.0.0.1:5000'
+  const apiUrl = 'http://127.0.0.1:5000'
 
   const fetchQuestions = async(query = '') => {
     try {
