@@ -9,8 +9,12 @@ class Api::V1::QuestionsController < ApplicationController
   end
 
   def search
-    @questions = Question.where('searchTerm LIKE ?', "%#{params[:q]}%").order('created_at DESC')
-    render json: @questions, status: :ok
+    @questions = if params[:query].present?
+      Question.where("search_term LIKE ?", "%#{params[:query]}%").order(created_at: :desc)
+    else
+      Question.none
+    end
+render json: @questions
   end
 
   # GET /questions/1

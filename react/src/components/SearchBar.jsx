@@ -4,6 +4,7 @@ import axios from 'axios';
 const SearchBar = () => {
   const [value, setValue] = useState('');
   const [questions, setQuestions] = useState([]);
+  const [loading, setLoading] = useState(true);
   const timeoutRef = useRef(null);
   const apiUrl = ' http://127.0.0.1:5000'
 
@@ -13,7 +14,9 @@ const SearchBar = () => {
       console.log(res.data)
       setQuestions(res.data);
     } catch (err) {
-      console.log(err);
+      console.log("Error Fetching Search",err);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -26,16 +29,16 @@ const SearchBar = () => {
     }
 
     timeoutRef.current = setTimeout(() => {
+      setLoading(true);
       fetchQuestions(value);
-    }, 2000);
+    }, 1000);
   }
 
   useEffect(() => {
     return () => clearTimeout(timeoutRef.current);
   },[]);
 
-
-
+  console.log(questions.length)
 
   return (
     <div>
@@ -48,28 +51,47 @@ const SearchBar = () => {
           onChange={handleSearchChange}
         />
       </div>
-
-      <div className="mt-4">
-      <table className="w-full border-collapse border border-gray-300">
-    <tbody>
-      {questions.map((question) => (
-        <tr key={question.id} className="border-b border-gray-300">
-          <td className="p-4 text-white">
-            {question.search_term}
-          </td>
-        </tr>
-      ))}
-      {questions.length === 0 && (
-        <tr>
-          <td className="p-4">No results found</td>
-        </tr>
-      )}
-    </tbody>
-  </table>
-          <p>No results found</p>
+    
+      {(loading && value.length > 0) ?  (
+      <p className="bg-white rounded-lg font-semibold">Loading...</p>
+    ) : (
+      <div>
+        {questions.length > 0 ? (
+          <div className="bg-white rounded-lg">
+            <p className="font-semibold">Results for {value}</p>
+            <table className="w-full border-collapse">
+              <tbody>
+                {questions.map((question) => (
+                  <tr key={question.id} className="border-b border-gray-300">
+                    <td className="p-4 text-gray-700">
+                      {question.search_term}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          value.length > 0 && (
+            <div className="bg-white rounded-lg py-10">
+              <p className="font-semibold py-4">No results Found</p>
+              <button className="bg-rose-500 text-white px-4 py-2 rounded-lg">
+                Ask Question
+              </button>
+            </div>
+          )
+        )}
       </div>
+    )}
+
+
+
+
+
+
+      
     </div>
-  );
-};
+  )};
+
 
 export default SearchBar;
