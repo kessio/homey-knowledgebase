@@ -10,5 +10,5 @@ npm run build
 
 cd ..
 bundle install
-/opt/render/project/bin/rails db:migrate
-/opt/render/project/bin/rails db:seed
+./bin/rails db:migrate
+./bin/rails db:seed
