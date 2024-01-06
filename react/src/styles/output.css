@@ -122,7 +122,6 @@
   --tw-backdrop-sepia: ;
 }
 
-
 /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -421,7 +420,6 @@ progress {
 Correct the cursor style of increment and decrement buttons in Safari.
 */
 
-
 /*
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
@@ -444,7 +442,6 @@ Remove the inner padding in Chrome and Safari on macOS.
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Change font properties to `inherit` in Safari.
 */
-
 
 /*
 Add the correct display in Chrome and Safari.
