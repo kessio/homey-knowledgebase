@@ -2,7 +2,7 @@
 # exit on error
 set -o errexit
 
-cd react
+cd ../react
 npm install
 npm run build  
 
@@ -13,7 +13,3 @@ bundle install
 
 ./bin/rails assets:precompile
 ./bin/rails assets:clean
-
-
-
-
