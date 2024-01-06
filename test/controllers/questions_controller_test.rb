@@ -1,35 +1,36 @@
-require "test_helper"
+require 'test_helper'
 
 class QuestionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @question = questions(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get questions_url, as: :json
     assert_response :success
   end
 
-  test "should create question" do
-    assert_difference("Question.count") do
+  test 'should create question' do
+    assert_difference('Question.count') do
       post questions_url, params: { question: { email: @question.email, searchTerm: @question.searchTerm } }, as: :json
     end
 
     assert_response :created
   end
 
-  test "should show question" do
+  test 'should show question' do
     get question_url(@question), as: :json
     assert_response :success
   end
 
-  test "should update question" do
-    patch question_url(@question), params: { question: { email: @question.email, searchTerm: @question.searchTerm } }, as: :json
+  test 'should update question' do
+    patch question_url(@question), params: { question: { email: @question.email, searchTerm: @question.searchTerm } },
+                                   as: :json
     assert_response :success
   end
 
-  test "should destroy question" do
-    assert_difference("Question.count", -1) do
+  test 'should destroy question' do
+    assert_difference('Question.count', -1) do
       delete question_url(@question), as: :json
     end
 
