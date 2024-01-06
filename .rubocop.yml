@@ -2,16 +2,21 @@ AllCops:
   NewCops: enable
   Exclude:
     - "db/**/*"
-    - "bin/*" 
+    - "bin/*"
     - "config/**/*"
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "app/channels/application_cable/channel.rb"
+    - "app/channels/application_cable/connection.rb"
+    - "app/controllers/application_controller.rb"
+    - "app/jobs/application_job.rb"
+    - "app/models/application_record.rb"
 
   DisplayCopNames: true
 
 Layout/LineLength:
-  Max: 120
+  Max: 200
 Metrics/MethodLength:
   Include:
     - "app/controllers/*"
@@ -25,7 +30,7 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  AllowedMethods: ['describe']
+  AllowedMethods: ["describe"]
   Max: 30
 
 Style/Documentation:

@@ -21,5 +21,4 @@ RSpec.describe Question, type: :model do
       expect(question).to be_valid
     end
   end
- 
 end

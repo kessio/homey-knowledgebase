@@ -25,4 +25,3 @@ RSpec.describe Api::V1::QuestionsController, type: :controller do
     end
   end
 end
-

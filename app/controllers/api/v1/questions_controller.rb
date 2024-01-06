@@ -1,7 +1,7 @@
 class Api::V1::QuestionsController < ApplicationController
   # POST /questions
   def create
-    search_term = params[:question][:search_term].downcase.strip
+    params[:question][:search_term].downcase.strip
 
     @question = Question.new(question_params)
 
@@ -13,8 +13,8 @@ class Api::V1::QuestionsController < ApplicationController
   end
 
   private
-    def question_params
-      params.require(:question).permit(:email, :search_term) 
-    end
+
+  def question_params
+    params.require(:question).permit(:email, :search_term)
+  end
 end
-  
