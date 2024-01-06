@@ -12,8 +12,13 @@ const SearchBar = () => {
 
   const fetchQuestions = async(query = '') => {
     try {
-      const res = await axios.get(`${apiUrl}/api/v1/search_articles/search?query=${query}`);
-      console.log(res.data)
+      const res = await axios.get(`${apiUrl}/api/v1/search_articles/search?query=${query}`,{
+      
+        headers: {
+           'Accept': 'application/json' 
+          } 
+          });
+    
       setQuestions(res.data);
     } catch (err) {
       console.log("Error Fetching Search",err);

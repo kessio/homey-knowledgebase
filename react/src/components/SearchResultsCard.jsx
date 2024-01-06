@@ -6,8 +6,13 @@ function SearchResultsCard({questions,value}) {
   const apiurl = 'http://127.0.0.1:5000'
   
   const handleClickSearch = async (id) => {
-    const response = await axios.post(`${apiurl}/api/v1/search_articles/count_search`, {
-          id: id
+    const response = await axios.patch(`${apiurl}/api/v1/search_articles/count_search`, {
+          id: id},
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+
     });
     window.location.reload();
   };

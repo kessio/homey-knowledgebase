@@ -4,12 +4,12 @@ RSpec.describe Api::V1::QuestionsController, type: :controller do
   describe 'POST #create' do
     context 'with valid parameters' do
       it 'creates a new question and renders it as JSON' do
-        valid_params = { question: { email: 'sharon@email.com', search_term: 'your_search_term' } }
+        valid_params = { question: { email: 'sharon@email.com', search_term: 'search_term' } }
 
         post :create, params: valid_params, format: :json
 
         expect(response).to have_http_status(:created)
-        expect(JSON.parse(response.body)).to include('email' => 'sharon@email.com', 'search_term' => 'your_search_term')
+        expect(JSON.parse(response.body)).to include('email' => 'sharon@email.com', 'search_term' => 'search_term')
       end
     end
 

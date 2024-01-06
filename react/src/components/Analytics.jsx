@@ -8,7 +8,13 @@ export default function Analytics() {
 
   const fetchRecent = async() => {
     try {
-      const res = await axios.get(`${apiUrl}/api/v1/search_articles/recent`);
+      const res = await axios.get(`${apiUrl}/api/v1/search_articles/recent`, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        
+      
       console.log(res.data)
       setAllRecent(res.data);
     } catch (err) {
@@ -19,7 +25,11 @@ export default function Analytics() {
 
   const fetchPopular = async () => {
     try {
-      const res = await axios.get(`${apiUrl}/api/v1/search_articles/popular`);
+      const res = await axios.get(`${apiUrl}/api/v1/search_articles/popular`, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
       console.log(res.data)
       setPopular(res.data);
     } catch (err) {

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :search_articles, only: [] do
         collection do
           get :search
-          post :count_search
+          patch :count_search
           get :recent
           get :popular
         end
