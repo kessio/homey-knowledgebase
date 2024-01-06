@@ -2,7 +2,7 @@
 # exit on error
 set -o errexit
 
-cd ../react
+cd react
 npm install
 npm run build  
 
