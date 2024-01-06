@@ -38,7 +38,7 @@ const SearchBar = () => {
     timeoutRef.current = setTimeout(() => {
       setLoading(true);
       fetchQuestions(value);
-    }, 1000);
+    }, 500);
   }
 
   useEffect(() => {

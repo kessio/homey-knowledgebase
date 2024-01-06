@@ -12,6 +12,7 @@ class Api::V1::SearchArticlesController < ApplicationController
       def count_search
         @search_article = SearchArticle.find(params[:id])
         @search_article.increment!(:count)
+        @search_article.touch
         render json: { message: 'Count incremented successfully' }, status: :ok
         rescue ActiveRecord::RecordNotFound
           render json: { error: 'SearchArticle not found' }, status: :not_found
