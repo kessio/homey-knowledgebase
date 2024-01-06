@@ -1,4 +1,7 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
+import react from 'react'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 import { renderResult } from './utils/searchHelpers'
 
@@ -33,7 +36,11 @@ function SearchResultsCard({questions,value}) {
             </table>
           </div>
   );
-  
 }
+
+SearchResultsCard.propTypes = {
+  questions: PropTypes.array.isRequired, 
+  value: PropTypes.any.isRequired, 
+};
 
 export default SearchResultsCard

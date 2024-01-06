@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import react from 'react'
 import SearchBar from './SearchBar'
 
 function Home() {

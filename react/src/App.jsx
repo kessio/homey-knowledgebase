@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import react from 'react'
 import './index.css'
 import Home from './components/Home'
