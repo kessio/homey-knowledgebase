@@ -11,4 +11,3 @@ bundle install
 ./bin/rails db:migrate
 ./bin/rails db:seed
 ./bin/rails assets:precompile
-./bin/rails assets:clean
