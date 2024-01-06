@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import react from 'react'
+import React from 'react'
 import { BiBuildingHouse, BiHomeHeart, BiUser } from 'react-icons/bi';
 
 function Topics() {

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
-import react from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import { renderResult } from './utils/searchHelpers'

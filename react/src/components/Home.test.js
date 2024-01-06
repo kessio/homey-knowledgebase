@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import react from 'react';
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Home from './Home';
 

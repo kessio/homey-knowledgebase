@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import  {useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 function NoResultsFound() {
