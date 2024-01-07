@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :questions 
-      root to: 'search_articles#index'
       resources :search_articles, only: [] do
         collection do
           get :search
@@ -13,4 +12,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  root to: 'api/v1/search_articles#index'
 end
