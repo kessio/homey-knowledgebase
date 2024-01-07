@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState,useEffect, useRef } from 'react';
 import axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner';
 import SearchResultsCard from './SearchResultsCard';
 import NoResultsFound from './NoResultsFound';
 
@@ -59,7 +60,9 @@ const SearchBar = () => {
       </div>
     
       {(loading && value.length > 0) ?  (
-      <p className="bg-white rounded-lg font-semibold">Loading...</p>
+      <p className="bg-white rounded-lg font-semibold">
+        Loading...
+      </p>
     ) : (
       <div>
         {questions.length > 0 ? (

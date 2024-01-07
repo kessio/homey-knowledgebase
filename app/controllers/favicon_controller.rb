@@ -1,5 +1,5 @@
 class FaviconController < ApplicationController
-    def favicon
-        head :not_found
-      end
+  def favicon
+    head :not_found
+  end
 end
