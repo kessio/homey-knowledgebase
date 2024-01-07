@@ -8,7 +8,6 @@ function LoadingSkeletonContent() {
     <div className="bg-gray-400 mb-2"> <Skeleton count={1} height={5} /></div>
     <div className="bg-gray-400 mb-2"> <Skeleton count={1} height={5} /></div>
     <div className="bg-gray-400 mb-2"> <Skeleton count={1} height={5} /></div>
-    <div className="bg-gray-400 mb-2"> <Skeleton count={1} height={5} /></div>
    </div>
     
   )
