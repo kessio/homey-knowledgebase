@@ -4,9 +4,9 @@ set -o errexit
 
 set -x
 
-cd react
-npm install
-npm run build  
+# cd react
+# npm install
+# npm run build  
 
 cd ..
 bundle install
