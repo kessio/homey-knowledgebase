@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'api/v1/search_articles#index'
+  get '/favicon.ico', to: 'favicon#favicon'
 end
