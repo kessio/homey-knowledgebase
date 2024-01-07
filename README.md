@@ -24,19 +24,14 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
 
-# 📖 [Homey Knowledge Base] <a name="about-project"></a>
+# 📖 Homey Knowledge Base <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+> Welcome to **Homey knowledge Base** This repository is the primary resource for the knowledge base of Homey, a leading real estate listing agency. Our goal is to provide users with a comprehensive repository of information and articles that address a wide range of questions related to our extensive real estate services. effectively.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
   <summary>Client</summary>
@@ -48,7 +43,7 @@
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
@@ -63,11 +58,14 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+ - **Search Functionality**
+   - Our knowledge base features a powerful search bar to help users quickly find relevant information. As users start typing a question, they will receive suggestions with relevant keywords to streamline the search process
+- **Article Suggestions**
+  - To enhance user experience, the search results include a list of suggested articles based on the entered keywords. This feature aims to guide users towards relevant information and answers.
+- **Submit a question**
+  - If a user's question cannot be found through the search, a form will prompt them to submit their question along with their email address. This ensures that we can reach out to them with the necessary information.
+- **Search Analytics**
+  - We have incorporated analytics to provide insights into user behavior. This includes tracking recent searches and identifying popular search queries. These analytics help us understand user preferences and tailor the knowledge base to their needs.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,9 +73,9 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
+> Project has been deployed in render
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://front-end-tvjy.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,83 +83,80 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- npm
+- Ruby
+- Ruby on rails
+- React
+- PostgreSQL
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone https://github.com/kessio/homey-knowledgebase.git
 ```
---->
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
 ```sh
   cd my-project
-  gem install
+  bundle install
+
+  cd react
+  npm install
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
-  rails server
+  cd my-project
+  rails db:create
+  rails db:migrate
+  rails db:seed
+  rails s
+
+  cd react
+  npm run build
 ```
---->
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  cd my-project
+  rspec
+
+ cd react
+ npm run test
 ```
---->
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
 
 ```sh
+cd my-project
+./bin/render-build.sh
+
+cd react
+./render-build.sh
 
 ```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -171,17 +166,11 @@ Example:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author1**
+👤 **Sharon kessio**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@kessio](https://github.com/kessio)
+- Twitter: [@kessio_sharon](https://twitter.com/kessio_sharon)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/sharon-kessio-172220b5)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -191,9 +180,12 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **User Feedback Intergration**
+      - Implement a feedback system where users can rate the helpfulness of articles. This data can help prioritize and improve content.
+- [ ] **Chatbot Intergration**
+      - Integrate a chatbot to provide real-time assistance to users who do not find answers to their questions.
+- [ ] **User Account and Personalization**
+      - Allow users to create accounts to personalize their experience, bookmark articles, and receive updates relevant to their preferences.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -211,9 +203,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project give it a ⭐️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -221,25 +211,13 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+I got the inspiration for this project from [HelpJuice](https://helpjuice.com/) a leading knowledge base software providers
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional) -->
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
