@@ -1,5 +1,4 @@
 class Api::V1::SearchArticlesController < ApplicationController
-  
   def index
     @search_articles = SearchArticle.all
     render json: @search_articles
