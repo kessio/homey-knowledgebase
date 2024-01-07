@@ -1,19 +1,15 @@
 /* eslint-disable no-unused-vars */
-import react from 'react'
+import React from 'react'
+import { Route, Routes } from 'react-router-dom';
 import './index.css'
-import Home from './components/Home'
-import Topics from './components/Topics'
-import Analytics from './components/Analytics'
+import PageContainer from './components/PageContainer';
 
 function App() {
 
   return (
-    <>
-    <Home />
-    <Topics />
-    <Analytics />
-    </>
-
+      <Routes>
+        <Route exact path="/" element={<PageContainer />} />
+      </Routes>
   )
 }
 
