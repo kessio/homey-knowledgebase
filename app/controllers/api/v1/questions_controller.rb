@@ -1,4 +1,5 @@
 class Api::V1::QuestionsController < ApplicationController
+ 
   # POST /questions
   def create
     params[:question][:search_term].downcase.strip
