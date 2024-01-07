@@ -10,5 +10,5 @@ npm run build
 
 cd ..
 bundle install
-./bin/rails db:migrate
-./bin/rails db:seed
+bundle exec rake db:migrate
+bundle exec rake db:seed
