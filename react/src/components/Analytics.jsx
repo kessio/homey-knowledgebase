@@ -8,6 +8,7 @@ export default function Analytics() {
   const [allPopular, setPopular] = useState([])
 
   const fetchRecent = async() => {
+    console.log("Before Making API CALL");
     try {
       const res = await axios.get(`${apiUrl}/api/v1/search_articles/recent`, {
         headers: {
