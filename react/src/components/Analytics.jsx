@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function Analytics() {
-  const apiUrl = 'http://127.0.0.1:5000'
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [allRecent, setAllRecent] = useState([''])
   const [allPopular, setPopular] = useState([''])
 

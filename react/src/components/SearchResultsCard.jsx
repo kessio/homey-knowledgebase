@@ -6,7 +6,7 @@ import axios from 'axios'
 import { renderResult } from './utils/searchHelpers'
 
 function SearchResultsCard({questions,value}) {
-  const apiurl = 'http://127.0.0.1:5000'
+  const apiurl = process.env.REACT_APP_API_URL;
   
   const handleClickSearch = async (id) => {
     const response = await axios.patch(`${apiurl}/api/v1/search_articles/count_search`, {
