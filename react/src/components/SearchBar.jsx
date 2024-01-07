@@ -9,7 +9,7 @@ const SearchBar = () => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const timeoutRef = useRef(null);
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const fetchQuestions = async(query = '') => {
     try {

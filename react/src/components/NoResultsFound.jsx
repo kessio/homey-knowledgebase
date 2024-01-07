@@ -7,7 +7,7 @@ function NoResultsFound() {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({});
   const [submissionSuccess, setSubmissionSuccess] = useState('')
-  const apiurl = process.env.REACT_APP_API_URL;
+  const apiurl = import.meta.env.VITE_API_URL;
 
   const handleQuestionChange = (e) => {
     setQuestion(e.target.value);

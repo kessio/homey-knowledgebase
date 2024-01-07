@@ -1,19 +1,15 @@
 /* eslint-disable no-unused-vars */
-import react from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom';
 import './index.css'
-import PageContainer from './components/PageContainer'
+import PageContainer from './components/PageContainer';
 
 function App() {
 
   return (
-    <Router>
-      <switch>
-        <Route exact path="/" component={PageContainer} />
-      </switch>
-    </Router>
-   
-
+      <Routes>
+        <Route exact path="/" element={<PageContainer />} />
+      </Routes>
   )
 }
 

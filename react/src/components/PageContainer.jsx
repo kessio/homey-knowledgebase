@@ -1,14 +1,15 @@
 import React from 'react'
-import Home from './components/Home'
-import Topics from './components/Topics'
-import Analytics from './components/Analytics'
+import Home from './Home'
+import Topics from './Topics'
+import Analytics from './Analytics'
 
 function PageContainer() {
+  
   return (
     <>
-     <Home />
+    <Home />
     <Topics />
-    <Analytics />
+    <Analytics /> 
     </>
   )
 }
