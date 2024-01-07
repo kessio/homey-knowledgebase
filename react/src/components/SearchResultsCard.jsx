@@ -25,7 +25,7 @@ function SearchResultsCard({questions,value}) {
             <p className="font-semibold">"Results for {value}"</p>
             <table className="w-full border-collapse">
               <tbody>
-                {questions.map((question) => (
+                {Array.isArray(questions) && questions.map((question) => (
                   <tr key={question.id} className="border-b border-gray-300">
                     <td className="p-4 text-gray-700">
                     {renderResult(question.id, question.title, question.content, value, handleClickSearch)}
